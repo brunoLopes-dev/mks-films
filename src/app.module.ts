@@ -8,6 +8,8 @@ import * as redisStore from 'cache-manager-ioredis-yet';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/user.module';
 import { MoviesModule } from './movies/movie.module';
+import { Movie } from './movies/movie.entity';
+import { User } from './users/user.entity';
 
 @Module({
   imports: [
@@ -16,18 +18,18 @@ import { MoviesModule } from './movies/movie.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: parseInt(process.env.POSTGRES_PORT, 10),
-      username: process.env.POSTGRES_USER,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DB,
-      entities: [__dirname + '/../**/*.entity.{js,ts}'],
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      entities: [Movie, User],
       synchronize: true,
     }),
     CacheModule.register({
       store: redisStore as unknown as CacheStoreFactory,
       host: process.env.REDIS_HOST,
-      port: parseInt(process.env.REDIS_PORT, 10),
+      port: Number(process.env.REDIS_PORT),
       ttl: 5,
     }),
     AuthModule,
