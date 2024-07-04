@@ -1,73 +1,149 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# 🚀 MKS Films 🚀
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Bem-vindo à MKS Films! Este projeto é uma API para gerenciamento de catálogos de filmes, construída com NestJS, TypeScript, TypeORM, PostgreSQL e Redis para cache. A aplicação também utiliza JWT para autenticação e Swagger para documentação da API. Esta API foi desenvolvida com foco em boas práticas de código e organização, garantindo um desempenho eficiente e uma manutenção facilitada. 
 
-## Description
+##  📋 Funcionalidades 📋
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Autenticação JWT
+- Operações CRUD para filmes
+- Cache com Redis
+- Documentação da API com Swagger
 
-## Installation
+## 🛠️ Tecnologias Utilizadas 🛠️
 
-```bash
-$ npm install
+- **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript.
+- **NestJS**: Framework para construção de aplicações server-side eficientes e escaláveis com Node.js.
+- **TypeORM**: ORM para TypeScript e JavaScript (ES7, ES6, ES5).
+- **PostgreSQL**: Sistema de gerenciamento de banco de dados relacional.
+- **Redis**: Armazenamento em cache na memória.
+- **Swagger**: Ferramenta para documentação de APIs RESTful.
+
+## Detalhamento de Rota
+
+### User
+| Método | Rota               | Descrição                                |
+| ------ | ------------------ | ---------------------------------------- |
+| `POST` | /users             | Cria um novo usuário.                    |
+| `GET`  | /users         | Lista todos os usuarios.                 |              
+| `PUT`  | /users/{id}    | Atualiza um usuario.                     |
+| `DELETE`| /users/{id}   | Exclui um usuario.                       |
+
+### Autenticação
+| Método | Rota   | Descrição             |
+| ------ | ------ | --------------------- |
+| `POST` | /auth/login | Autentica um usuário. |
+
+### Filmes
+| Método | Rota               | Descrição                                |
+| ------ | ------------------ | ---------------------------------------- |
+| `POST` | /movie        | Adiciona um filme.                       |
+| `GET`  | /movie         | Lista todas os filmes.                    |
+| `GET`  | /movie/{id}   | Detalha um filme específico.             |
+| `PUT`  | /movie/{id}   | Atualiza um filme.                       |
+| `DELETE`| /movie/{id}  | Exclui um filme.                         |
+
+## Respostas
+
+| Código | Descrição                                     |
+|--------|-----------------------------------------------|
+| `200`  | Requisição executada com sucesso (success).   |
+| `400`  | Erros de validação ou campos não encontrados. |
+| `401`  | Dados de acesso inválidos.                    |
+| `404`  | Registro não encontrado (Not found).          |
+
+## 🛠️ Experiência 🛠️
+
+Sou um entusiasta do desenvolvimento web comprometido em alcançar resultados excepcionais. Tenho experiência sólida em várias linguagens e tecnologias, incluindo:
+
+- **TypeScript**: 3 anos de experiência
+- **JavaScript**: 3 anos de experiência
+- **React**: 2 anos de experiência
+- **Node.js**: 3 anos de experiência
+- **SQL**: 3 anos de experiência
+
+## 📋 Estrutura do Projeto 📋
+
+```plaintext
+mks-films/
+├── dist/
+│   ├── main.js
+│   ├── ... (outros arquivos compilados)
+├── src/
+│   ├── app.controller.ts
+│   ├── app.module.ts
+│   ├── auth/
+│   │   ├── auth.controller.ts
+│   │   ├── auth.module.ts
+│   │   ├── auth.service.ts
+│   │   ├── jwt.strategy.ts
+│   │   ├── local.strategy.ts
+│   ├── movies/
+│   │   ├── movie.controller.ts
+│   │   ├── movie.entity.ts
+│   │   ├── movie.module.ts
+│   │   ├── movie.service.ts
+│   ├── users/
+│   │   ├── user.controller.ts
+│   │   ├── user.entity.ts
+│   │   ├── user.module.ts
+│   │   ├── user.service.ts
+│   ├── main.ts
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-## Running the app
+## 📋 Pré-requisitos 📋
+
+- Node.js (v14 ou superior)
+- PostgreSQL
+- Redis
+
+## 🔧 Configuração 🔧
+
+1. Clone o repositório:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone https://github.com/seu-usuario/mks-films.git
+cd mks-films
 ```
 
-## Test
+2. Instale as dependências:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Support
+3. Configure as variáveis de ambiente:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 
-## Stay in touch
+```env
+DB_HOST=your_postgres_host
+DB_PORT=your_postgres_port
+DB_USER=your_postgres_user
+DB_PASSWORD=your_postgres_password
+DB_DATABASE=your_postgres_db
+REDIS_HOST=your_redis_host
+REDIS_PORT=your_redis_port
+```
+4. Inicie a aplicação:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+npm run start:dev
+```
 
-## License
+## 📋 Documentação da API 📋
 
-Nest is [MIT licensed](LICENSE).
+A documentação da API está disponível através do Swagger. Após iniciar a aplicação, acesse:
+
+```
+http://localhost:3000/api
+```
+
+## 🎁 Agradecimentos 🎁
+
+Expresso minha gratidão na criação deste projeto. Foi uma experiência enriquecedora trabalhar com essas linguagens e frameworks e desenvolver uma API para gerenciamento de filmes.
+
+
